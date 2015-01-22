@@ -10,13 +10,7 @@ keywords:
   - cabal
 script: |
   set +e
-
-  # Install required tools
-  sudo apt-get update
-  sudo apt-get install curl
-
-  # Install nix
-  curl https://nixos.org/nix/install | sh
+  sudo mv $WERCKER_SOURCE_DIR/nix /nix
   source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
   echo "source /nix/var/nix/profiles/default/etc/profile.d/nix.sh" >> ~/.profile
 
