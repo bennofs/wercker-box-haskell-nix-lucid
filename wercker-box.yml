@@ -12,10 +12,13 @@ script: |
   set +e
 
   # Install required tools
+  sudo apt-get update
   sudo apt-get install curl
 
   # Install nix
   curl https://nixos.org/nix/install | sh
+  source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+  cat "source /nix/var/nix/profiles/default/etc/profile.d/nix.sh" >> ~/.profile
 
   # Populate the nix store with prebuild haskell packages (packages from stackage)
   nix-build --no-out-link $WERCKER_SOURCE_DIR/default.nix
