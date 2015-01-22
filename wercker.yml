@@ -6,5 +6,5 @@ build:
         code: |
           curl https://nixos.org/nix/install | sh
           source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-          nix-build --no-out-link -A acme-dont
+          nix-build --no-out-link lucid-haskell-packages.nix -A acme-dont
           sudo mv /nix ./nix
