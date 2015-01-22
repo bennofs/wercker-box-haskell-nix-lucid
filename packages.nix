@@ -1,6 +1,21 @@
 let
   pkgs = import <nixpkgs> { config = {}; };
-  haskellPackages = import ./lucid-haskell-packages.nix;
+  isEnabled = x: x == null || ! x ? pname ||
+    (if x ? enabled then x.enabled else builtins.throw "${x.pname} has no enabled");
+  haskellPackages = (import ./lucid-haskell-packages.nix).override (old: {
+    overrides = self: super:
+      let super = (old.overrides or (_: _: {})) self super;
+      in super // {
+        mkDerivation = args: super.mkDerivation (args // {
+          passthru = with pkgs.lib; with builtins; {
+            enabled =
+              let nativeDeps = args.extraLibraries or [] ++ args.pkgconfigDepends or [];
+              in all isEnabled (args.buildDepends or []) &&
+                 [] == filter (x: x != null) nativeDeps;
+          };
+        });
+      };
+  });
   deriv = pkgs.stdenv.mkDerivation {
     name = "stackage-packages";
     buildCommand = ''
@@ -13,14 +28,5 @@ let
   };
   stackagePackages = with builtins; filter (x: !isFunction x && x != null) (attrValues (haskellPackages.callPackage (import deriv) {}));
   extraPackages = with haskellPackages; [ storable-record ];
-  overrideCabal = drv: f: if drv == null then drv else drv.override (args: args // {
-    mkDerivation = drv: args.mkDerivation (drv // f drv);
-  });
-  checkExtraDeps = with builtins; d: overrideCabal d (old: {
-    passthru = {
-      enabled = [] == filter (x: x != null) (old.extraLibraries or [] ++ old.pkgconfigDepends or []);
-    };
-  });
-  isEnabled = x: x.enabled or true;
-  allPackages = with builtins; filter isEnabled (map checkExtraDeps (stackagePackages ++ extraPackages));
+  allPackages = with builtins; filter isEnabled (stackagePackages ++ extraPackages);
 in allPackages
