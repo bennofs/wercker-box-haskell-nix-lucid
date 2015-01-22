@@ -9,6 +9,11 @@ keywords:
   - ghc
   - cabal
 script: |
+  set +e
+
+  # Install required tools
+  sudo apt-get install curl
+
   # Install nix
   curl https://nixos.org/nix/install | sh
 
