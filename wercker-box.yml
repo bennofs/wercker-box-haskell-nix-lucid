@@ -1,0 +1,28 @@
+name: haskell-nix-ubuntu-lucid
+version: 0.0.2
+type: main
+platform: ubuntu@10.04
+description: The nix package manager preconfigured to build Haskell applications for ubuntu 10.04.
+keywords:
+  - haskell
+  - 32bit
+  - ghc
+  - cabal
+script:
+  # Install nix
+  curl https://nixos.org/nix/install | sh
+
+  # Populate the nix store with prebuild haskell packages (packages from stackage)
+  nix-build --no-out-link $WERCKER_SOURCE_DIR/default.nix
+default-build:
+  nix:
+    priority: 50
+    detect:
+      - files:
+          - release.nix
+    text-to-append: |
+      build:
+        steps:
+          - script:
+              name: Build application
+              code: nix-build release.nix
