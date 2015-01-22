@@ -8,7 +8,7 @@ keywords:
   - 32bit
   - ghc
   - cabal
-script:
+script: |
   # Install nix
   curl https://nixos.org/nix/install | sh
 
