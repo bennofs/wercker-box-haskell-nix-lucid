@@ -20,6 +20,9 @@ script: |
   source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
   echo "source /nix/var/nix/profiles/default/etc/profile.d/nix.sh" >> ~/.profile
 
+  ls $WERCKER_SOURCE_DIR
+  ls $WERCKER_ROOT
+  ls
   # Populate the nix store with prebuild haskell packages (packages from stackage)
   nix-build --no-out-link $WERCKER_SOURCE_DIR/default.nix
 default-build:
