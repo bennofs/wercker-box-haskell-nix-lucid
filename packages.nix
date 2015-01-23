@@ -27,6 +27,6 @@ let
     '';
   };
   stackagePackages = with builtins; filter (x: !isFunction x && x != null) (attrValues (haskellPackages.callPackage (import deriv) {}));
-  extraPackages = with haskellPackages; [ storable-record ];
-  allPackages = with builtins; filter isEnabled (stackagePackages ++ extraPackages);
+  extraPackages = with haskellPackages; [ storable-record lens conduit errors optparse-applicative ];
+  allPackages = with builtins; filter isEnabled extraPackages;
 in allPackages
