@@ -1,4 +1,4 @@
-with (import ./haskell-packages.nix);
+with (import ./lucid-haskell-packages.nix);
 builtins.filter (x: x != null) [
 async
 attoparsec
