@@ -1,5 +1,6 @@
 name: haskell-nix-ubuntu-lucid
-version: 0.0.2
+version: 0.0.3
+inherits: bennofs/haskell-nix-ubuntu-lucid@0.0.2
 type: main
 platform: ubuntu@10.04
 description: The nix package manager preconfigured to build Haskell applications for ubuntu 10.04.
@@ -10,12 +11,12 @@ keywords:
   - cabal
 script: |
   set +e
-  sudo apt-get update
-  sudo apt-get install curl
-  sudo mv $WERCKER_SOURCE_DIR/nix /nix
-  source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-  echo "source /nix/var/nix/profiles/default/etc/profile.d/nix.sh" >> ~/.profile
-  nix-channel --update
+  #sudo apt-
+  #sudo apt-get install curl
+  #sudo mv $WERCKER_SOURCE_DIR/nix /nix
+  #source /nix/var/nix/proles/default/etc/profile.d/nix.sh
+  #echo "source /nix/var/nix/profiles/default/etc/profile.d/nix.sh" >> ~/.profile
+  #nix-channel --u
 
   # Populate the nix store with prebuild haskell packages (packages from stackage)
   nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix
