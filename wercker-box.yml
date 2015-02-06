@@ -12,10 +12,8 @@ keywords:
 script: |
   set +e
 
-  cat $WERCKER_CACHE_DIR/test || echo "Wercker cache test failed"
-
   # Update nix channels
   nix-channel --update
 
   # Populate the nix store with prebuild haskell packages
-  ( cmdpid=$BASHPID; (sleep 2400; kill -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to timeout."
+  ( cmdpid=$BASHPID; (sleep 1800; kill -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to timeout."
