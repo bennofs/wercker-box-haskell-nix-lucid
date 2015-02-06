@@ -1,5 +1,5 @@
 name: haskell-nix-ubuntu-lucid
-version: 0.0.7
+version: 0.0.8
 inherits: bennofs/haskell-nix-ubuntu-lucid@0.0.6
 type: main
 platform: ubuntu@10.04
@@ -14,4 +14,4 @@ script: |
   nix-channel --update
 
   # Populate the nix store with prebuild haskell packages
-  setsid --wait bash -c 'cmdpid=$BASHPID; (sleep 600; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix' || echo "--- Please deploy again, build not yet complete due to time limit."
+  setsid --wait /bin/bash -c 'trap "exit 0" SIGTERM SIGINT; cmdpid=$BASHPID; (sleep 600; kill -TERM -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.niSIx' || echo "--- Please deploy again, build not yet complete due to time limit."
