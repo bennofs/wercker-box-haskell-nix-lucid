@@ -1,5 +1,5 @@
 name: haskell-nix-ubuntu-lucid
-version: 0.0.0.6.1
+version: 0.0.6
 inherits: bennofs/haskell-nix-ubuntu-lucid@0.0.5
 type: main
 platform: ubuntu@10.04
