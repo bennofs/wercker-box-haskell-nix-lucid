@@ -1,0 +1,7 @@
+box: wercker/default@0.0.2
+build:
+  steps:
+    script:
+      name: Test wercker cache persist deploy
+      code: |
+        echo "test" > $WERCKER_CACHE_DIR/test
