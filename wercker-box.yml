@@ -13,8 +13,8 @@ script: |
   # Update nix channels
   nix-channel --update
 
-  setsid --wait $(type -p bash) -c 'echo setsid works'
   type -p bash
+  setsid -cw $(type -p bash) -c 'echo setsid works'
 
   # Populate the nix store with prebuild haskell packages
   setsid --wait $(type -p bash) --norc --noprofile -c 'trap "exit 0" SIGTERM SIGINT; cmdpid=$BASHPID; (sleep 600; kill -TERM -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.niSIx' || echo "--- Please deploy again, build not yet complete due to time limit."
