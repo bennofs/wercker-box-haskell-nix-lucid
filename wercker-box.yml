@@ -10,10 +10,10 @@ keywords:
   - ghc
   - cabal
 script: |
-  set +e
-
   # Update nix channels
   nix-channel --update
 
   # Populate the nix store with prebuild haskell packages
-  ( cmdpid=$BASHPID; (sleep 1500; echo "Timeout happened"; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to timeout."
+  ( cmdpid=$BASHPID; (sleep 1200; echo "Timeout happened"; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to timeout."
+
+  echo "Done"
