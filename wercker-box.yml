@@ -1,6 +1,6 @@
 name: haskell-nix-ubuntu-lucid
-version: 0.0.6
-inherits: bennofs/haskell-nix-ubuntu-lucid@0.0.5
+version: 0.0.7
+inherits: bennofs/haskell-nix-ubuntu-lucid@0.0.6
 type: main
 platform: ubuntu@10.04
 description: The nix package manager preconfigured to build Haskell applications for ubuntu 10.04.
@@ -16,4 +16,4 @@ script: |
   nix-channel --update
 
   # Populate the nix store with prebuild haskell packages
-  ( cmdpid=$BASHPID; (sleep 100; echo "Timeout happened"; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to timeout."
+  ( cmdpid=$BASHPID; (sleep 1500; echo "Timeout happened"; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to timeout."
