@@ -14,4 +14,4 @@ script: |
   nix-channel --update
 
   # Populate the nix store with prebuild haskell packages
-  ( cmdpid=$BASHPID; (sleep 1200; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix ) || echo "--- Please deploy again, build not yet complete due to time limit."
+  setsid --wait bash -c 'cmdpid=$BASHPID; (sleep 600; kill -- -$cmdpid) & nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix' || echo "--- Please deploy again, build not yet complete due to time limit."
