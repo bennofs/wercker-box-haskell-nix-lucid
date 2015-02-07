@@ -1,10 +1,14 @@
 [
+# Generated using:
+# $ apt-get install --print-uris -yy -qq libgmp3-dev gcc pkg-config libz-dev | tr "'" '"' | cut -f1,4 -d' ' | sed -re 's/"([^"]*)" SHA256:(.*)$/{ url = "\1"; sha256 = "\2"; }/'
+{ url = "http://archive.ubuntu.com/ubuntu/pool/main/e/eglibc/libc-bin_2.11.1-0ubuntu7.20_i386.deb"; sha256 = "80f12fbe1d213512f20000dd3392a30880c09c378291bd573408b81a73668d8b"; }
+{ url = "http://archive.ubuntu.com/ubuntu/pool/main/e/eglibc/libc6_2.11.1-0ubuntu7.20_i386.deb"; sha256 = "a424b1bdce0557aa9d1eee7033daad242082c7e0a44e03e7950003e6eb4caa22"; }
 { url = "http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-4.1/gcc-4.1-base_4.1.2-27ubuntu1_i386.deb"; sha256 = "84e64e0f4e356cb6d7bfb0ced80a4413c7ff87502980a3724d7de55abca6557b"; }
 { url = "http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-4.1/cpp-4.1_4.1.2-27ubuntu1_i386.deb"; sha256 = "3ea4028a88c22eeee7357547b9cfd191d9f83d2e3a167daa6a155f3784ab2ac1"; }
 { url = "http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-4.1/gcc-4.1_4.1.2-27ubuntu1_i386.deb"; sha256 = "88274de1899b68ccda9f114f423852a55d4c75bbb896ecabbdeaed2b069f8468"; }
-{ url = "http://archive.ubuntu.com/ubuntu/pool/main/e/eglibc/libc-dev-bin_2.11.1-0ubuntu7.19_i386.deb"; sha256 = "ab542de4e3f9ecebf60bef5b76bb7dbc7b35c709ec853f992acfe1b9bc056025"; }
-{ url = "http://archive.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_2.6.32-71.138_i386.deb"; sha256 = "0bc8f8399dded9f12952fd6e7826b316dfccbc7960bb80480faed7baf46a27d0"; }
-{ url = "http://archive.ubuntu.com/ubuntu/pool/main/e/eglibc/libc6-dev_2.11.1-0ubuntu7.19_i386.deb"; sha256 = "08374500025017ae608239d6ab87f596b502efcea16014654ebf56e68d264609"; }
+{ url = "http://archive.ubuntu.com/ubuntu/pool/main/e/eglibc/libc-dev-bin_2.11.1-0ubuntu7.20_i386.deb"; sha256 = "e271dc1e4ab738b66c33951db88e5e1e70134d2ed3cb719b4bf4ecfc90fda844"; }
+{ url = "http://archive.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_2.6.32-72.139_i386.deb"; sha256 = "ce97a22b68c68459bd9005d9accf777e3a77e15171264856188f5018e90915b6"; }
+{ url = "http://archive.ubuntu.com/ubuntu/pool/main/e/eglibc/libc6-dev_2.11.1-0ubuntu7.20_i386.deb"; sha256 = "7f8cb643ebe3f72f0c686f5e62de410afbe75cb4c8f13d569cb9e2678177709e"; }
 { url = "http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-4.1/libstdc++6-4.1-dev_4.1.2-27ubuntu1_i386.deb"; sha256 = "0ccfbb616637fe20c7afa7ee8dbaec9e34f34d442935d2ccb5c6b847e3ec4754"; }
 { url = "http://archive.ubuntu.com/ubuntu/pool/universe/g/gcc-4.1/g++-4.1_4.1.2-27ubuntu1_i386.deb"; sha256 = "1f9dc541d3accc7a3bba84ec1ef26af66ce45c126b4947cb30c83384b3023562"; }
 { url = "http://archive.ubuntu.com/ubuntu/pool/main/g/gcc-4.4/gcc-4.4_4.4.3-4ubuntu5.1_i386.deb"; sha256 = "fd91488cac764780779bec57b77309820400aa55e546f7cba7b907e0b97659b6"; }
