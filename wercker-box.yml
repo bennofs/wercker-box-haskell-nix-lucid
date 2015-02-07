@@ -17,7 +17,7 @@ script: |
 
   # Install haskell-lucid-packages.nix
   sudo mkdir /haskell-lucid-packages
-  sudo cp $WERCKER_SOURCE_DIR/deps.nix /haskell-lucid-packages
+  sudo cp $WERCKER_SOURCE_DIR/debs.nix /haskell-lucid-packages
   sudo cp $WERCKER_SOURCE_DIR/haskell-lucid-packages.nix /haskell-lucid-packages/default.nix
 
   # Populate the nix store with prebuild haskell packages
