@@ -16,9 +16,9 @@ script: |
   nix-channel --update
 
   # Install haskell-lucid-packages.nix
-  sudo mkdir /haskell-lucid-packages
-  sudo cp $WERCKER_SOURCE_DIR/debs.nix /haskell-lucid-packages
-  sudo cp $WERCKER_SOURCE_DIR/haskell-lucid-packages.nix /haskell-lucid-packages/default.nix
+  sudo mkdir /lucid-haskell-packages
+  sudo cp $WERCKER_SOURCE_DIR/debs.nix /lucid-haskell-packages
+  sudo cp $WERCKER_SOURCE_DIR/lucid-haskell-packages.nix /lucid-haskell-packages/default.nix
 
   # Populate the nix store with prebuild haskell packages
   timeout 1800 nix-build --no-out-link $WERCKER_SOURCE_DIR/packages.nix || echo "--- Please deploy again, build not yet complete due to timeout."
