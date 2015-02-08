@@ -1,5 +1,6 @@
 with (import ./lucid-haskell-packages.nix);
 builtins.filter (x: x != null) [
+QuickCheck
 async
 attoparsec
 blaze-builder
@@ -21,6 +22,10 @@ network
 optparse-applicative
 regex-applicative
 storable-record
+tasty
+tasty-hunit
+tasty-th
+taty-quickcheck
 text
 th-lift
 th-lift-instances

@@ -119,7 +119,7 @@ let
   chrootHaskellPackages = haskellngPackages.override (old: {
     stdenv = chrootStdenv;
     overrides = self: super: (old.overrides or (_: _: {})) self super // {
-      mkDerivation = args: chrootCabalBuilder (args // cabalDefaults);
+      mkDerivation = args: chrootCabalBuilder (cabalDefaults // args );
     };
     pkgs = let result = pkgs // {
       callPackage = pkgs.callPackageWithScope result;
