@@ -12,8 +12,11 @@ conduit-extra
 data-default
 deepseq
 deepseq-generics
+directory
+doctest
 either
 errors
+filepath
 http-conduit
 lens
 mmorph
@@ -24,8 +27,8 @@ regex-applicative
 storable-record
 tasty
 tasty-hunit
-tasty-th
 tasty-quickcheck
+tasty-th
 text
 th-lift
 th-lift-instances
