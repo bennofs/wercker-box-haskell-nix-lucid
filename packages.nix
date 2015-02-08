@@ -24,6 +24,8 @@ storable-record
 text
 th-lift
 th-lift-instances
+vector
+vector-th-unbox
 wreq
 xml-conduit
 xml-lens
