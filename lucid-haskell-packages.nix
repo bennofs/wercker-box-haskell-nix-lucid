@@ -96,17 +96,19 @@ let
       mkDerivation = attrs: buildInChroot (env.mkDerivation attrs);
     };
 
+  chrootGHC = {
+    inherit (sources.ghc) version;
+    meta.platforms = lib.platforms.linux;
+    name = "ghc-${sources.ghc.version}";
+    outPath = "/usr/local";
+  };
+
   chrootCabalBuilder =
    import <nixpkgs/pkgs/development/haskell-modules/generic-builder.nix> {
     inherit (pkgs) fetchurl glibcLocales coreutils gnugrep gnused;
-    stdenv = chrootStdenv;
     inherit (haskellngPackages) jailbreak-cabal hscolour cpphs;
-    ghc = {
-      inherit (sources.ghc) version;
-      meta.platforms = lib.platforms.linux;
-      name = "ghc-${sources.ghc.version}";
-      outPath = "/usr/local";
-    };
+    ghc = chrootGHC;
+    stdenv = chrootStdenv;
     pkgconfig = "/usr";
   };
 
@@ -120,11 +122,12 @@ let
     stdenv = chrootStdenv;
     overrides = self: super: (old.overrides or (_: _: {})) self super // {
       mkDerivation = args: chrootCabalBuilder (cabalDefaults // args );
+      ghc = chrootGHC;
     };
     pkgs = let result = pkgs // {
       callPackage = pkgs.callPackageWithScope result;
 
-      # these are provided by the ubuntu base system
+      # provided by ubuntu base system
       zlib = null;
     }; in result;
   });
