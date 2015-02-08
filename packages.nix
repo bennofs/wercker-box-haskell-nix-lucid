@@ -25,7 +25,7 @@ storable-record
 tasty
 tasty-hunit
 tasty-th
-taty-quickcheck
+tasty-quickcheck
 text
 th-lift
 th-lift-instances
