@@ -39,4 +39,5 @@ xml-conduit
 xml-lens
 xml-types
 zlib
+ekg
 ]

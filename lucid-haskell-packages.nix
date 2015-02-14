@@ -129,6 +129,7 @@ let
 
       # provided by ubuntu base system
       zlib = null;
+      openssl = null;
     }; in result;
   });
 
