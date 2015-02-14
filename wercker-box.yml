@@ -1,6 +1,6 @@
 name: haskell-nix-ubuntu-lucid
-version: 0.2.4
-inherits: bennofs/haskell-nix-ubuntu-lucid@0.2.3
+version: 0.2.5
+inherits: bennofs/haskell-nix-ubuntu-lucid@0.2.4
 type: main
 platform: ubuntu@10.04
 description: The nix package manager preconfigured to build Haskell applications for ubuntu 10.04.
