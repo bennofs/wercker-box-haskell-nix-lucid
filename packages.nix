@@ -40,4 +40,4 @@ xml-lens
 xml-types
 zlib
 ekg
-]
+] ++ [ (import <nixpkgs> {}).haskellngPackages.cabal2nix ]
