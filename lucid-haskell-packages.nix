@@ -70,7 +70,7 @@ let
   });
 
   ccWrapperPath =
-    if builtins.pathExists <nixpkgs/pkgs/build-support/cc-wrapper>
+    if builtins.pathExists (<nixpkgs/pkgs/build-support> + "/cc-wrapper")
     then <nixpkgs/pkgs/build-support/cc-wrapper>
     else <nixpkgs/pkgs/build-support/gcc-wrapper>;
 
