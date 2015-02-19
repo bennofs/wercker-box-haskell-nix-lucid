@@ -13,7 +13,7 @@ script: |
   set +e
 
   # Update nix channels
-  nix-channel --update
+  #nix-channel --update
 
   # Install haskell-lucid-packages.nix
   sudo mkdir -p /lucid-haskell-packages

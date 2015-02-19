@@ -69,8 +69,13 @@ let
     ];
   });
 
+  ccWrapperPath =
+    if builtins.pathExists <nixpkgs/pkgs/build-support/cc-wrapper>
+    then <nixpkgs/pkgs/build-support/cc-wrapper>
+    else <nixpkgs/pkgs/build-support/gcc-wrapper>;
+
   chrootGCC = lib.overrideDerivation
-    (buildInChroot (import <nixpkgs/pkgs/build-support/gcc-wrapper> {
+    (buildInChroot (import ccWrapperPath {
       nativeTools = true;
       nativeLibc = true;
       nativePrefix = "/usr";
